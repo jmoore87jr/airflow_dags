@@ -36,8 +36,8 @@ t1 = PythonOperator(
     python_callable=get_files_from_S3,
     dag=dag,
     op_kwargs={
-        'bucket_name': 'mnnk',
-        'object_name': 'airflow/file-to-watch-1.txt',
-        'file_name': 'airflow/file-to-watch-1.txt',
+        'bucket_name': 'bucket_name',
+        'object_name': 'path_to_file(s)',
+        'file_name': 'path_to_file(s)',
     })
 

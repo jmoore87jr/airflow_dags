@@ -28,12 +28,13 @@ t1 = BashOperator(
 
 sensor = S3KeySensor(
     task_id='s3_sensor',
-    bucket_key='airflow/file-to-watch-*',
-    bucket_name='mnnk',
+    bucket_key='path_to_file(s)',
+    bucket_name='bucket_name',
     wildcard_match=True,
-    aws_conn_id='aws_conn',
+    aws_conn_id='aws_conn_id', # should match with Admin -> Connections -> aws_conn in Airflow UI
     timeout=18*60*60,
     poke_interval=120,
     dag=dag)
 
 t1.set_upstream(sensor)
+# 'sensor >> t1' same thing
