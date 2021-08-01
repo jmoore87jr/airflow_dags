@@ -1,12 +1,12 @@
-"""
-I want to use the Airflow AWS connection to get files from S3
-"""
-
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.contrib.hooks.aws_hook import AwsHook
 from datetime import datetime, timedelta
 import boto3
+
+# Use boto3 to read in a file from S3
+# Create a connection in the Airflow UI with your AWS credentials...
+# and Airflow should automatically pick them up
 
 default_args = {
     'owner': 'airflow',

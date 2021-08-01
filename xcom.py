@@ -3,6 +3,8 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
+# Airflow's XCom is used to pass small amounts of data between tasks
+
 # Test functions
 def push_func(**kwargs):
     s = "Muffie the cat"
@@ -13,7 +15,6 @@ def pull_func(**kwargs):
     ti = kwargs['ti']
     fetched_string = ti.xcom_pull(key='push string', task_ids=['push']) # match key with push func
     print(fetched_string)
-
 
 
 # Airflow

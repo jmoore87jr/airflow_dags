@@ -1,11 +1,12 @@
-"""
-S3 Sensor Connection Test
-"""
-
 from airflow import DAG
 from airflow.operators import BashOperator
 from airflow.sensors.s3_key_sensor import S3KeySensor
 from datetime import datetime, timedelta
+
+# S3KeySensor monitors an S3 bucket for new files
+# bucket_name is the base bucket name
+# bucket_key is the path to the file(s) you want to monitor
+# poke_interval is the refresh interval in seconds
 
 default_args = {
     'owner': 'airflow',
