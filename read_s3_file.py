@@ -1,6 +1,5 @@
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-from airflow.contrib.hooks.aws_hook import AwsHook
 from datetime import datetime, timedelta
 import boto3
 from PRIVATE import bucket_name, object_name, file_name
