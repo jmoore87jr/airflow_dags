@@ -20,7 +20,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5)
 }
 
-dag = DAG('s3_dag_test', default_args=default_args, schedule_interval= '@once')
+dag = DAG('s3_sensor', default_args=default_args, schedule_interval= '@once')
 
 t1 = BashOperator(
     task_id='bash_test',

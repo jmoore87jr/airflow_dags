@@ -23,7 +23,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id='xcom_test',
+    dag_id='xcom',
     default_args=default_args,
     schedule_interval=None,
     start_date=days_ago(1),

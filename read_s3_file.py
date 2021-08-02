@@ -20,7 +20,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5)
 }
 
-dag = DAG('get_s3_file', default_args=default_args, schedule_interval= '@once')
+dag = DAG('read_s3_file', default_args=default_args, schedule_interval= '@once')
 
 s3 = boto3.resource('s3')
 
