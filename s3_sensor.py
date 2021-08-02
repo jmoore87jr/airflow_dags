@@ -2,6 +2,7 @@ from airflow import DAG
 from airflow.operators import BashOperator
 from airflow.sensors.s3_key_sensor import S3KeySensor
 from datetime import datetime, timedelta
+from PRIVATE import bucket_name, bucket_key, aws_conn_id
 
 # S3KeySensor monitors an S3 bucket for new files
 # bucket_name is the base bucket name

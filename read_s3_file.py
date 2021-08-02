@@ -3,6 +3,7 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.contrib.hooks.aws_hook import AwsHook
 from datetime import datetime, timedelta
 import boto3
+from PRIVATE import bucket_name, object_name, file_name
 
 # Use boto3 to read in a file from S3
 # Create a connection in the Airflow UI with your AWS credentials...
@@ -36,8 +37,8 @@ t1 = PythonOperator(
     python_callable=get_files_from_S3,
     dag=dag,
     op_kwargs={
-        'bucket_name': 'bucket_name',
-        'object_name': 'path_to_file(s)',
-        'file_name': 'path_to_file(s)',
+        'bucket_name': bucket_name,
+        'object_name': object_name,
+        'file_name': file_name,
     })
 
