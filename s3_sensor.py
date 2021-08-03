@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.operators import BashOperator
+from airflow.operators.bash import BashOperator
 from airflow.providers.amazon.aws.sensors.s3_key import S3KeySensor
 from datetime import datetime, timedelta
 from PRIVATE import bucket_name, bucket_key, aws_conn_id
