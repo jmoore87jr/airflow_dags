@@ -1,17 +1,15 @@
-import requests
+import os
+from PRIVATE import username, password
 
-dag_name = 'xcom'
+### WORKS!!!
+# Make sure backend is set to basic_auth in config: 
+# auth_backend = airflow.api.auth.backend.basic_auth
+command = """
+curl -X POST --user {username}:{password} \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+--data '{"dag_run_id": "string", "execution_date": "2021-08-06T21:47:01.641764+00:00", "conf": { }}' \
+http://localhost:8080/api/v1/dags/xcom/dagRuns
+""".format(username, password)
 
-url = f'http://localhost:8080/api/experimental/dags/{dag_name}/dag_runs'
-headers = {'Cache-Control': 'no-cache', 
-            'Content-Type': 'application/json'}
-
-r = requests.get(url)
-print(r.status_code)
-print(r.text)
-
-try:
-    requests.post(url=url, headers=headers)
-    print("DAG triggered")
-except:
-    print("DAG trigger FAILED")
+os.system(command)
